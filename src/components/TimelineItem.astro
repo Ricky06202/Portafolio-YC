@@ -1,0 +1,36 @@
+---
+interface Props {
+  year: string
+  title: string
+  institution: string
+  description?: string
+}
+
+const { year, title, institution, description } = Astro.props
+---
+
+<div class="relative pl-8 pb-12 last:pb-0 group">
+  <!-- Line -->
+  <div
+    class="absolute left-0 top-0 bottom-0 w-px bg-slate-200 group-last:bottom-10"
+  >
+  </div>
+  <!-- Dot -->
+  <div
+    class="absolute -left-1 top-2 w-2 h-2 rounded-full bg-accent ring-4 ring-accent/10 transition-transform group-hover:scale-125"
+  >
+  </div>
+
+  <span
+    class="inline-block px-3 py-1 bg-slate-100 rounded-full text-xs font-bold text-secondary mb-2 tracking-wider"
+  >
+    {year}
+  </span>
+  <h3 class="text-xl font-bold text-primary mb-1">{title}</h3>
+  <h4 class="text-md font-medium text-accent mb-3">{institution}</h4>
+  {
+    description && (
+      <p class="text-secondary leading-relaxed max-w-2xl">{description}</p>
+    )
+  }
+</div>

@@ -1,11 +1,230 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro'
+import Header from '../components/Header.astro'
+import Hero from '../components/Hero.astro'
+import Section from '../components/Section.astro'
+import TimelineItem from '../components/TimelineItem.astro'
+import {
+  Briefcase,
+  GraduationCap,
+  Trophy,
+  Globe,
+  Languages,
+  Mail,
+  Linkedin,
+  Phone,
+  MapPin,
+} from 'lucide-astro'
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const skills = [
+  'Logística Multimodal',
+  'Gestión de Transporte',
+  'Derecho Mercantil',
+  'Ciencias Políticas',
+  'Resolución de Conflictos',
+  'Planificación Estratégica',
+  'Comunicación Profesional',
+  'Análisis de Datos',
+]
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Yeisury Coronel Saldaña | Logística & Derecho">
+  <Header />
+
+  <main>
+    <Hero />
+
+    <Section
+      id="sobre-mi"
+      title="Sobre Mí"
+      subtitle="Doble formación para un perfil integral en el comercio y la ley."
+    >
+      <div class="max-w-3xl mx-auto text-secondary leading-relaxed space-y-4">
+        <p>
+          Soy una profesional en formación con una visión estratégica dual. Mi
+          formación en <strong>Logística y Transporte Multimodal</strong> me permite
+          entender la columna vertebral operativa de Panamá, mientras que mis estudios
+          en <strong>Derecho y Ciencias Políticas</strong> me brindan el marco regulatorio
+          necesario para navegar en entornos corporativos complejos.
+        </p>
+        <p>
+          Mi objetivo es contribuir al desarrollo del sector logístico nacional,
+          integrando eficiencia técnica con integridad legal, con especial
+          interés en instituciones pilares como el Canal de Panamá.
+        </p>
+      </div>
+    </Section>
+
+    <Section id="educacion" title="Educación" className="bg-white">
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="space-y-8">
+          <div class="flex items-center space-x-3 mb-6">
+            <GraduationCap class="text-accent" />
+            <h3 class="text-2xl font-serif font-bold text-primary">
+              Formación Académica
+            </h3>
+          </div>
+          <TimelineItem
+            year="2022 - Actualidad"
+            title="Lic. en Logística y Transporte Multimodal"
+            institution="Universidad Tecnológica de Panamá (UTP)"
+            description="Enfoque en cadena de suministro, gestión portuaria y transporte internacional."
+          />
+          <TimelineItem
+            year="2021 - Actualidad"
+            title="Lic. en Derecho y Ciencias Políticas (4to Año)"
+            institution="Universidad Autónoma de Chiriquí (UNACHI)"
+            description="Especialización en derecho administrativo y mercantil."
+          />
+          <TimelineItem
+            year="2021"
+            title="Bachillerato"
+            institution="Graduada con Excelencia"
+            description="Sólida base académica para estudios superiores."
+          />
+        </div>
+
+        <div class="space-y-8">
+          <div class="flex items-center space-x-3 mb-6">
+            <Trophy class="text-accent" />
+            <h3 class="text-2xl font-serif font-bold text-primary">
+              Habilidades y Logros
+            </h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {
+              skills.map((skill) => (
+                <span class="px-3 py-1 bg-slate-100 text-slate-700 rounded-md text-sm font-medium border border-slate-200">
+                  {skill}
+                </span>
+              ))
+            }
+          </div>
+
+          <div class="mt-8 space-y-4">
+            <div
+              class="flex items-center space-x-4 p-4 bg-slate-50 rounded-xl border border-slate-100"
+            >
+              <Languages class="text-accent" />
+              <div>
+                <p class="font-bold text-primary">Idiomas</p>
+                <p class="text-sm text-secondary">
+                  Español (Nativo) | Inglés (Técnico)
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-center space-x-4 p-4 bg-slate-50 rounded-xl border border-slate-100"
+            >
+              <Globe class="text-accent" />
+              <div>
+                <p class="font-bold text-primary">Visión Global</p>
+                <p class="text-sm text-secondary">
+                  Interés en el Comercio Exterior y Derecho Internacional.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <Section
+      id="contacto"
+      title="Contáctame"
+      subtitle="¿Lista para colaborar? Hablemos por el canal que prefieras."
+    >
+      <div class="max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- WhatsApp -->
+          <a
+            href="https://wa.me/50763580722"
+            target="_blank"
+            class="flex flex-col items-center justify-center p-8 bg-white border border-slate-100 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all group"
+          >
+            <div
+              class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-emerald-600 group-hover:text-white transition-all"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-message-circle"
+                ><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg
+              >
+            </div>
+            <span class="font-bold text-primary">WhatsApp</span>
+            <span class="text-sm text-secondary">+507 6358-0722</span>
+          </a>
+
+          <!-- Email (Mailto) -->
+          <a
+            href="mailto:coronelyeisury5@gmail.com"
+            class="flex flex-col items-center justify-center p-8 bg-white border border-slate-100 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all group"
+          >
+            <div
+              class="w-16 h-16 bg-accent/5 text-accent rounded-2xl flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-white transition-all"
+            >
+              <Mail size={32} />
+            </div>
+            <span class="font-bold text-primary">Enviar Correo</span>
+            <span class="text-sm text-secondary text-center px-2"
+              >coronelyeisury5@gmail.com</span
+            >
+          </a>
+
+          <!-- Copy Email -->
+          <button
+            onclick="copyToClipboard('coronelyeisury5@gmail.com')"
+            class="flex flex-col items-center justify-center p-8 bg-white border border-slate-100 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all group"
+          >
+            <div
+              class="w-16 h-16 bg-primary/5 text-primary rounded-2xl flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-all"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-copy"
+                ><rect width="14" height="14" x="8" y="8" rx="2" ry="2"
+                ></rect><path
+                  d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+                ></path></svg
+              >
+            </div>
+            <span class="font-bold text-primary">Copiar Correo</span>
+            <span class="text-sm text-secondary">Un solo clic</span>
+          </button>
+        </div>
+
+        <p class="text-center text-secondary text-sm mt-12 italic opacity-60">
+          "Mi compromiso es responder en menos de 24 horas laborables."
+        </p>
+      </div>
+    </Section>
+  </main>
+
+  <footer class="py-10 bg-slate-900 text-white text-center no-print">
+    <div class="container mx-auto px-6">
+      <p class="text-sm opacity-60">
+        © 2024 Yeisury Coronel Saldaña. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Local script removed: functionality moved to global Layout.astro
+  </script>
 </Layout>
