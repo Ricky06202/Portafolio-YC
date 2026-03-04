@@ -28,13 +28,16 @@ import { Linkedin, Mail, MapPin, Phone } from 'lucide-astro'
           >
           </div>
 
-          <!-- Photo Placeholder -->
+          <!-- Photo -->
           <div
-            class="relative w-64 h-80 sm:w-80 sm:h-112.5 bg-slate-200 rounded-xl overflow-hidden shadow-2xl flex items-center justify-center border-4 border-white"
+            class="relative w-64 h-80 sm:w-80 sm:h-112.5 bg-slate-200 rounded-xl overflow-hidden shadow-2xl flex items-center justify-center border-4 border-white transition-transform group-hover:scale-[1.02] duration-500"
           >
-            <span class="text-slate-400 font-serif italic">Yeisury Coronel</span
-            >
-            <!-- Imagen real iría aquí: <img src="/tu-foto.jpg" alt="Yeisury Coronel" class="w-full h-full object-cover" /> -->
+            <img
+              src="/perfil.png"
+              alt="Yeisury Coronel Saldaña"
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
           </div>
         </div>
       </div>
