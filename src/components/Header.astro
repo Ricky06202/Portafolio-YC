@@ -161,7 +161,7 @@ const navItems = [
           >
         </a>
         <button
-          id="copy-email-mobile"
+          onclick="copyToClipboard('coronelyeisury5@gmail.com'); closeMenu()"
           class="w-14 h-14 bg-accent/5 text-accent rounded-2xl flex items-center justify-center hover:bg-accent hover:text-white transition-all shadow-sm border border-accent/20"
           aria-label="Copiar correo"
         >
@@ -186,22 +186,12 @@ const navItems = [
   </div>
 </div>
 
-<!-- Success Toast -->
-<div
-  id="toast"
-  class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-full text-sm font-medium z-101 opacity-0 translate-y-10 transition-all duration-300 shadow-2xl pointer-events-none"
->
-  ¡Correo copiado al portapapeles!
-</div>
-
 <script>
   const menuBtn = document.getElementById('menu-btn')
   const closeBtn = document.getElementById('close-btn')
   const mobileMenu = document.getElementById('mobile-menu')
   const menuBackdrop = document.getElementById('menu-backdrop')
   const mobileLinks = document.querySelectorAll('.mobile-link')
-  const toast = document.getElementById('toast')
-  const copyBtn = document.getElementById('copy-email-mobile')
 
   function openMenu() {
     mobileMenu?.classList.remove('translate-x-full')
@@ -215,27 +205,9 @@ const navItems = [
     document.body.style.overflow = ''
   }
 
-  function showToast() {
-    toast?.classList.remove('opacity-0', 'translate-y-10')
-    setTimeout(() => {
-      toast?.classList.add('opacity-0', 'translate-y-10')
-    }, 2000)
-  }
-
-  async function copyEmail() {
-    try {
-      await navigator.clipboard.writeText('coronelyeisury5@gmail.com')
-      showToast()
-      closeMenu()
-    } catch (err) {
-      console.error('Error al copiar:', err)
-    }
-  }
-
   menuBtn?.addEventListener('click', openMenu)
   closeBtn?.addEventListener('click', closeMenu)
   menuBackdrop?.addEventListener('click', closeMenu)
-  copyBtn?.addEventListener('click', copyEmail)
 
   mobileLinks.forEach((link) => {
     link.addEventListener('click', closeMenu)
